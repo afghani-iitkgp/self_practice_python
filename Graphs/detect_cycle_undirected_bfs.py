@@ -34,7 +34,7 @@ def BFS_traversal_for_cycle_detection(adj, s, V, visited):
 
             elif parent[u] != v:
                 #print([v, u])
-                
+                pass
 
                 #return True
 
