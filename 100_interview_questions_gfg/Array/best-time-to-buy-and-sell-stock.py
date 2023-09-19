@@ -80,11 +80,51 @@ def maxProfit_type2(A: List) -> int:
     return profit
 
 
+
+## ------------------ Amrit ------------------------------
+
+# Case 1: only one transaction is allowed
+def calcMaxprofit_type1(price):
+    
+    entryPrice = price[0]
+    maxProfit = 0
+
+    for i in range(1,len(price)):
+        if (price[i] < entryPrice):
+            entryPrice = price[i]
+            print(entryPrice)
+        else:
+            if(price[i]-entryPrice > maxProfit):
+                maxProfit = price[i]-entryPrice
+                print(maxProfit)
+    return(entryPrice,maxProfit)
+
+# Case 2: multiple transactions are allowed. calculate total profit
+def calcTotalprofit_type2(price):
+    entryPrice = price[0]
+    totalProfit = 0
+    maxProfit = 0
+    
+    for i in range(1,len(price)):
+        if((price[i] < entryPrice) or (price[i] < price[i-1])):
+            totalProfit += maxProfit
+            maxProfit = 0
+            entryPrice=price[i]
+            print(totalProfit)
+        else:
+            if(price[i]-entryPrice > maxProfit):
+                maxProfit = price[i] - entryPrice
+    totalProfit += maxProfit
+    return(totalProfit)
+
+
+
 if __name__ == "__main__":
     prices = [7, 1, 5, 3, 6, 4]
     # prices = [7, 6, 4, 3, 1]
-    prices = [7, 1, 5, 3, 6, 4, 8, 6, 5]
+    prices = [7, 1, 0, 5, 3, 6, 4, 8, 6, 5]
     # prices = [1, 2, 3, 4, 5]
 
+    print(calcMaxprofit_type1(prices))
 
     print(maxProfit_type2(prices))
