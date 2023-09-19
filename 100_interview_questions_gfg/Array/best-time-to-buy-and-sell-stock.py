@@ -106,14 +106,15 @@ def calcTotalprofit_type2(price):
     maxProfit = 0
     
     for i in range(1,len(price)):
-        if((price[i] < entryPrice) or (price[i] < price[i-1])):
+        if ((price[i] < entryPrice) or (price[i] < price[i-1])):
             totalProfit += maxProfit
             maxProfit = 0
             entryPrice=price[i]
             print(totalProfit)
         else:
-            if(price[i]-entryPrice > maxProfit):
+            if (price[i] - entryPrice > maxProfit):
                 maxProfit = price[i] - entryPrice
+                
     totalProfit += maxProfit
     return(totalProfit)
 
