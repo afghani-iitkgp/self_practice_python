@@ -94,8 +94,8 @@ def calcMaxprofit_type1(price):
             entryPrice = price[i]
             print(entryPrice)
         else:
-            if(price[i]-entryPrice > maxProfit):
-                maxProfit = price[i]-entryPrice
+            if(price[i] - entryPrice > maxProfit):
+                maxProfit = price[i] - entryPrice
                 print(maxProfit)
     return(entryPrice,maxProfit)
 
