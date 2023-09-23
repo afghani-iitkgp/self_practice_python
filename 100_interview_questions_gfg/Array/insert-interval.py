@@ -57,7 +57,27 @@ def insert2(intervals, new_interval):
         i += 1
 
     return result     
-            
+
+
+def insert_needcode(intervals, newInterval):
+    result = []
+    n = len(intervals)
+
+    for i in range(n):
+        if intervals[i][1] < newInterval[0]:         # Insert those intervals which are less than newInterval.start
+            result.append(intervals[i])
+        elif intervals[i][0] > newInterval[1]:       # Insert those intervals which are greater than newInterval.end
+            result.append(newInterval)
+            result.append(intervals[i : ])
+            return result
+        else:
+            x = min(intervals[i][0], newInterval[0])
+            y = max(intervals[i][1], newInterval[1])
+            newInterval = [x, y]
+    
+    result.append(newInterval)
+
+    return result
 
 
 if __name__ == "__main__":
@@ -76,4 +96,5 @@ if __name__ == "__main__":
     # intervals = [[1,5]]
     # newInterval = [6, 8]
 
-    print(insert2(intervals, newInterval))
+    # print(insert2(intervals, newInterval))
+    print(insert_needcode(intervals, newInterval))
