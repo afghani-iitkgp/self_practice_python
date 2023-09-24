@@ -2,26 +2,26 @@ from typing import List
 
 
 def insertion_sort(arr: List) -> List:
-    size = len(arr)
+    n = len(arr)
 
-    def append_to_sorted_array(sorted_arr, n, t):
-        
-        if sorted_arr[n-1] > t:
-            temp_t = sorted_arr[n]
-            sorted_arr[n-1] = t
-            sorted_arr.append(temp_t)
-        else:
-            sorted_arr.append(t)
-        
-        return sorted_arr
+    sort_arr = [arr[0]]
 
-    for i in range(1, size):
-        sorted_arr = append_to_sorted_array(arr[ : i], i, arr[i])
-
-    print(sorted_arr)
+    for i in range(1, n):
+        sort_arr.append(arr[i])
+        for j in range(len(sort_arr)-1, 0, -1):
+            if sort_arr[j] < sort_arr[j-1]:
+                temp = sort_arr[j]
+                sort_arr[j] = sort_arr[j-1]
+                sort_arr[j-1] = temp
+    
+    return sort_arr
 
 
-lst = [9,4,6,7,1,3,4,10]
 
-insertion_sort(lst)
+if __name__ == "__main__":
+
+    lst = [9,4,6,7,1,3,4,10]    
+    lst = [5, 3, 16, 6, 12, 11, 4, 2, 8]
+    print(lst)
+    print(insertion_sort(lst))
     

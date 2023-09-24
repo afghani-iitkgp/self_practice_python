@@ -80,6 +80,10 @@ def insert_needcode(intervals, newInterval):
     return result
 
 
+def insert_whileloop(intervals, newIntervals):
+    pass
+
+
 if __name__ == "__main__":
     # Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
     # Output: [[1,5],[6,9]]
