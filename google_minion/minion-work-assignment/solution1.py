@@ -4,7 +4,7 @@ def solution(data, n):
     complain = set()
 
     if n == 0:
-        return Nonenlp
+        return None
 
     for i in range(size):
         if data[i] not in count_mp.keys():
